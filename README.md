@@ -1,1 +1,7 @@
-# Design-and-Implementation-of-ADC-Converter-with-Timer-Interrupt-on-TI-Delfino-Controller
+In this experiment, I programmed and tested the Analog-to-Digital Converter (ADC) module on the TI Delfino DSP controller to convert the analog voltage from a potentiometer (POT1) into a digital value. The goal was to understand ADC configuration, triggering, sampling, and digital conversion timing using Timer0 as the trigger source.
+
+I created a project titled “Lab4_ADC_Converter”, initialized and powered up the ADC module, and configured SOC0 to sample channel ADCINA0 with a 100-cycle sampling window. The ADC conversion was triggered every 10 milliseconds by CPU Timer0, and the EOC0 flag was used to generate an ADC interrupt (ADCINT1). In the ISR (adcint1_isr), I stored the converted result in a global variable named Result, which was monitored through the watch window.
+
+I varied the potentiometer position and observed corresponding changes in the digital output (Result) and the analog voltage measured on the oscilloscope. I compared the converted digital values to the theoretical ADC output using VREFHI = 3.3 V and VREFLO = 0 V, verifying the accuracy of the ADC conversion.
+
+Finally, I used the scaled ADC result as a variable delay factor to toggle LED LD10 (GPIO41), demonstrating how ADC outputs can be used for real-time control. The experiment successfully showed the relationship between analog input voltage, digital conversion value, and its application in control systems.
